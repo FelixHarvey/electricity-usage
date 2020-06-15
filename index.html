@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"> 
+
+        <meta name="description" content="Choropleth">
+        <meta name="keywords" content="JS,HTML,D3">
+        <meta name="author" content="Felix Harvey">
+
+        <script src="https://d3js.org/d3.v5.min.js"></script>
+        <script src="//d3js.org/topojson.v1.min.js"></script>
+
+        <!-- Bootstrap-->
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+        
+        <title>Australian Electricity Usage</title>
+    </head>
+    <body>
+        <div class="wrapper">
+            <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
+                <!-- Felix Harvey Title-->
+                <a class="navbar-brand" href="#">Australian Electricity Usage</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                  <span class="navbar-toggler-icon"></span>
+                </button>
+    
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav mr-auto">
+                      <li class="nav-item active">
+                        <a class="nav-link" href="#">Explanation</a>
+                      </li>
+                      <li class="nav-item">
+                        <a class="nav-link" href="vis.html">Visualisation<span class="sr-only"></span></a>
+                      </li>
+                    </ul>
+                  </div>
+            </nav>
+            <div class="container">
+              <h4 class="mt-3">How To Use</h4>
+              <p class="lead">
+                The choropleth compares SA2 regions (suburb or a few suburbs combined). 
+                Simply scroll on the map to zoom in and out of your area of choice. 
+                Hovering over a region will display the relevant details for that region. 
+                Electricity usage can be filtered by using the percentiles slider.
+                The metric can be changed from the control panel, the two options are median electricity usage and emissions.
+                Emissions is calculated by multiplying the electricity usage by a state estimate for emissions intensity.
+                <br>
+                <br>
+                The electricity generation area chart can be changed by using the controls or alternatively clicking on a region in an appropriate state.
+                Hover over the area chart to see the composition of electricity generation in that state at that particular time.
+                The legend can also be used to highlight individual generation sources for that state.
+              </p>
+              <h4 class="mt-3">Electricity - Environmental Impacts</h4>
+              <p class="lead">
+                Energy and electricity production is the primary source of greenhouse gas emissions (33% of emissions) within Australia and therefore contributes heavily to the issue of climate change within Australia.
+                Climate change has numerous flow on effects which directly impact the sustainability of this planet.
+                Electricity is of paramount importance because it can be produced sustainability through renewable energy and therefore has little to no ongoing emissions.
+                <br>
+                <br>
+                To find out how you can ensure your electricity provider sources from renewable sources see the <a href="https://www.greenelectricityguide.org.au/">Green Electricity Guide</a> and <a href="https://www.choice.com.au/home-improvement/energy-saving/reducing-your-carbon-footprint/articles/green-electricity-review">Choice</a>.
+                It is also worth looking into getting rooftop solar installed to reduce costs and emissions, see <a href="https://www.energy.gov.au/households/solar-pv-and-batteries">energy.gov.au</a>.
+              </p>
+              <h4 class="mt-3">Key Terms</h4>
+              <p class="lead">
+                <ul>
+                  <li>
+                    An <strong>SA2</strong> region is a geographical area defined by the <a href="https://www.abs.gov.au/websitedbs/D3310114.nsf/home/Australian+Statistical+Geography+Standard+(ASGS)#:~:text=The%20SA2%20is%20the%20smallest,population%20of%20about%2010%2C000%20persons.">ABS</a>.
+                    It is typically a suburb or few suburbs combined to have a population of approximately 10,000 people.
+                  </li>
+                  <li>
+                    The <strong>NEM (National Electricity Market)</strong> is the integrated electricity grid that comprises the eastern states of Australia (TAS, VIC, SA, NSW & QLD).
+                    Electricity generation and emissions data is reported for these states.
+                  </li>
+                  <li>
+                    <strong>Solar (Rooftop)</strong> is solar energy sourced from household rooftops.
+                  </li>
+                  <li>
+                    <strong>Solar (Utility)</strong> is solar energy sourced from industrial scale solar farms.
+                  </li>
+                  <li>
+                    <strong>Wind</strong> is energy sourced from wind farms.
+                  </li>
+                  <li>
+                    <strong>Hydro</strong> is energy sourced from hydro (water) power plants.
+                  </li>
+                  <li>
+                    <strong>Battery (Discharging)</strong> is energy sourced from batteries that have stored energy.
+                  </li>
+                  <li>
+                    <strong>Gas (Reciprocating)</strong> is energy sourced from <a href="https://en.wikipedia.org/wiki/Reciprocating_engine">internal combustion engines</a>.
+                  </li>
+                  <li>
+                    <strong>Gas (OCGT)</strong> is energy sourced from an <a href="https://en.wikipedia.org/wiki/Gas-fired_power_plant"> open cycle gas-turbine</a>.
+                  </li>
+                  <li>
+                    <strong>Gas (CCGT)</strong> is energy sourced from a <a href="https://en.wikipedia.org/wiki/Gas-fired_power_plant">combined cycle gas-turbine</a>.
+                  </li>
+                  <li>
+                    <strong>Gas (Steam)</strong> is energy sourced from burning gas to heat water.
+                  </li>
+                  <li>
+                    <strong>Distillate</strong> is energy sourced from petrol and oil.
+                  </li>
+                  <li>
+                    <strong>Biomass</strong> is energy sourced from burning plant and animal material.
+                  </li>
+                  <li>
+                    <strong>Black Coal</strong> is energy sourced from burning black coal (more clean than brown coal).
+                  </li>
+                  <li>
+                    <strong>Brown Coal</strong> is energy sourced from burning brown coal (less clean than black coal).
+                  </li>
+                </ul>
+              </p>
+              <h4 class="mt-3">The Project</h4>
+              <p class="lead">
+                  This was created for the unit Data Visualisation COS30045 (Sem 1, 2020) at Swinburne University of Technology. 
+                  The visualisation was created using d3.js and Bootstrap was used as a frontend framework.
+                  The GitHub repository can be found <a href="https://github.com/FelixHarvey/electricity-usage">here</a>.
+                  <br>
+                  <br>
+              </p>
+            </div>
+
+            <div class="push"></div>
+        </div>
+
+
+        <footer class="footer">
+            <div class="container">
+                <span class="text-white">Felix Harvey 2020</span>
+            </div>
+        </footer>
+        
+        
+
+        <script src="main.js"></script>
+        
+
+        <!-- Bootstrap JS, JQuery and Popper-->
+        <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+        <link rel="stylesheet" href="main.css">
+    </body>
+</html>

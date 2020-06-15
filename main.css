@@ -1,0 +1,45 @@
+/* Doubtfire does not let me upload a blank file. */
+#controls {
+    padding-left: 0;
+    padding-right: 0;
+    min-height: 100%;
+}
+.footer {
+    width: 100%;
+    background-color: #343a40;
+    bottom: 0;
+    width: 100%;
+    height: 56px;
+    line-height: 56px;
+    /*color: rgba(255,255,255,.5);*/
+    color: #fff;
+}
+html, body {
+    height: 100%;
+}
+.wrapper {
+    min-height: 100%;
+    height: auto !important;
+    height: 100%;
+    margin: 0 auto -56px; /* the bottom margin is the negative value of the footer's height */
+}
+.push {
+    height: 56px; /* .push must be the same height as .footer */
+}
+
+div.tooltip {	
+    position: absolute;			
+    text-align: center;										
+    padding: 4px;				
+    font: 12px sans-serif;		
+    background: lightsteelblue;	
+    border: 0px;		
+    border-radius: 10px;			
+    pointer-events: none;			
+}
+p {
+    margin: 0;
+}
+.label {
+    font-size: 13px;
+}
