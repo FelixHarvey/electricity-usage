@@ -139,7 +139,8 @@ Due to the ABS electricity consumption data being summed at both SA3, SA4 and st
 
 Once the aggregation columns were removed, the data rows still remained just with blank SA2 identifiers. Microsoft Excel was then used to remove the whole row if the SA2 name column contained a blank entry. 
 
-![](https://imgur.com/uyEwhur)
+![](https://imgur.com/uyEwhur.png)
+
 To calculate rankings within the respective states and Australia, the Excel ‘RANK’ function was utilised, and when the file was converted to a CSV the numbers were retained. At this point the count of SA2 regions in each state individually as well as across Australia as a whole was recorded and later manually inputted into the JavaScript code. This saves unnecessary aggregation and calculation when the data is loaded from a user's browser. 
 
 A similar process was applied to achieve an average emissions intensity for each state across the past year, with this information manually put into the graph to save aggregation during the load. To calculate an individual SA2 region’s emissions, the state average is multiplied by their respective usage.
