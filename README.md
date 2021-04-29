@@ -1,5 +1,5 @@
 # Electricity Usage
-A web based visualisation to give users an insight into how their electricity consumption compares to the rest of Australia
+A web based visualisation to give users an insight into how their electricity consumption compares to the rest of Australia.
 
 ## Contents
 * [So What?](#so-what)
