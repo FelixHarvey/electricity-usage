@@ -5,6 +5,7 @@ A web based visualisation to give users an insight into how their electricity co
 * [So What?](#so-what)
 * [How to View](#view)
 * [How to Use](#use)
+* [Reflection / What I Would Change](#change)
 * [Data Procurement Process](#procurement)
 * [Key Terms](#terms)
 
@@ -40,6 +41,12 @@ Hover over the area chart to see the composition of electricity generation in th
 The legend can also be used to highlight individual generation sources for that state.
 
 ![](https://media.giphy.com/media/1AuXQfFDwWKGLXdjSJ/giphy.gif)
+
+## <a name="change"></a>Reflection / What I Would Change
+This project is far from perfect. Looking back (or into the future if I decide to) these are the key changes I would (or will) make:
+1. Simplify. If the purpose is to inform users about the impact of their energy usage - the visualisation is too complex. There are too many technical terms and confusing controls. There's not a clear action for users to take.
+2. Develop a better story. Rather than bombarding users with all the information at once, package up separate insights and deliver them separately so that the message is clearer and a better story is built.
+3. Address search. Have the ability for users to enter an address and show relevant information. This would be valuable if the user is unfamiliar with an area that they are looking to get data from.
 
 ## <a name="challenges"></a>Data Procurement Process
 ### Data Source
